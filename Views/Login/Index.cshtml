@@ -1,0 +1,24 @@
+<div>
+    <h1>登入測試</h1>
+
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <div id="g_id_onload" data-client_id="899005079900-f0n83l0hmt7ip7go3c4qc6ds5q34k3nt.apps.googleusercontent.com" data-callback="onSignIn">
+    </div>
+    <div class="g_id_signin" data-type="standard"></div>
+    <div id="credential"></div>
+    <script>
+        function onSignIn(googleUser) {
+            console.log(googleUser)
+            if(googleUser && googleUser.credential){
+                let cred = document.getElementById('credential');
+                cred.innerHTML = googleUser.credential
+            }
+            @* var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present. *@
+        }
+    </script>
+</div>
